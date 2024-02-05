@@ -60,7 +60,7 @@
 }
 
 .settingsButton {
-    align-self: left;
+    align-self: flex-end;
     margin-right: 20px;
     margin-top: 20px;
 }

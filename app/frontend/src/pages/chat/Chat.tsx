@@ -270,7 +270,7 @@ const Chat = () => {
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(58, 195, 99, 1)"} aria-hidden="true" aria-label="Chat logo" />
-                            <img src="/workspaces/azure-search-openai-demo/data/OIG3.jpeg" />
+                            <img src="/app/frontend/src/assets/OIG3.jpeg" />
                             <h1 className={styles.chatEmptyStateTitle}>Hola amigos</h1>
                             <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
