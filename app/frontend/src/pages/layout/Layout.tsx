@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Panel } from "@fluentui/react";
+
 import { ContexMenu } from "../../components/ContexMenu/ContexMenu";
 
 import { Outlet, NavLink, Link } from "react-router-dom";
@@ -54,6 +56,8 @@ const Layout = () => {
             </header>
 
             <Outlet />
+
+            <Panel headerText="Configure answer generation"></Panel>
         </div>
     );
 };
