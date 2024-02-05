@@ -12,14 +12,13 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
-const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
-
 const Layout = () => {
+    const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
     return (
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
-                    <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
+                    <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(isConfigPanelOpen)} />
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>Chat about native plants</h3>
                     </Link>
