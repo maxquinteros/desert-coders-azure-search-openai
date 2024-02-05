@@ -16,13 +16,17 @@ import { LoginButton } from "../../components/LoginButton";
 
 const Layout = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
+
+    const closePanel = () => {
+        setIsConfigPanelOpen(false);
+    };
     return (
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
                     <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>Chat about native plants</h3>
+                        <h3 className={styles.headerTitle}>Chat about symptoms of diseases</h3>
                     </Link>
                     <nav>
                         <ul className={styles.headerNavList}>
@@ -57,9 +61,20 @@ const Layout = () => {
 
             <Outlet />
 
-            <Panel isOpen={isConfigPanelOpen} onDismiss={togglePanel} headerText="Mi Panel" closeButtonAriaLabel="Cerrar">
-                {/* Contenido del panel */}
-                <p>¡Contenido del panel aquí!</p>
+            <Panel isOpen={isConfigPanelOpen} onDismiss={closePanel} headerText="Configuración" closeButtonAriaLabel="Cerrar" className={styles.panelContainer}>
+                <div className={styles.panelContent}>
+                    {/* Sección de Login */}
+                    <div>
+                        <h4>Login</h4>
+                        {/* Puedes agregar aquí tus componentes o contenido relacionado con el login */}
+                    </div>
+
+                    {/* Sección de Historial */}
+                    <div>
+                        <h4>Historial</h4>
+                        {/* Puedes agregar aquí tus componentes o contenido relacionado con el historial */}
+                    </div>
+                </div>
             </Panel>
         </div>
     );
