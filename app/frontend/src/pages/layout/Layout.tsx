@@ -12,8 +12,9 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
+const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
+
 const Layout = () => {
-    const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
     return (
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
