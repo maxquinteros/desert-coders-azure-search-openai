@@ -10,7 +10,7 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
-import { ContexMenu } from "../../components/ContexMenu";
+import { ContexMenu } from "../../components/ContexMenu/ContexMenu";
 
 const Layout = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
