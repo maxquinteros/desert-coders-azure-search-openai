@@ -8,7 +8,7 @@ interface Props {
     onClick: () => void;
 }
 
-export const SettingsButton = ({ className, onClick }: Props) => {
+export const ContexMenu = ({ className, onClick }: Props) => {
     return (
         <div className={`${styles.container} ${className ?? ""}`}>
             <Button icon={<Settings24Regular />} onClick={onClick}>
