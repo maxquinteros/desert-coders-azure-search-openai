@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Panel } from "@fluentui/react";
+import { Panel, PanelType } from "@fluentui/react";
 
 import { ContexMenu } from "../../components/ContexMenu/ContexMenu";
 
@@ -61,7 +61,7 @@ const Layout = () => {
 
             <Outlet />
 
-            <Panel isOpen={isConfigPanelOpen} onDismiss={closePanel} headerText="Configuración" closeButtonAriaLabel="Cerrar" className={styles.panelContainer}>
+            <Panel isOpen={isConfigPanelOpen} onDismiss={closePanel} headerText="Configuración" closeButtonAriaLabel="Cerrar" type={PanelType.smallFixedNear}>
                 <div className={styles.panelContent}>
                     {/* Sección de Login */}
                     <div>
