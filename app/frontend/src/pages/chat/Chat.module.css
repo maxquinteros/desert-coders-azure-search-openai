@@ -16,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: #a1c0d3;
 }
 
 .chatEmptyState {
@@ -85,7 +86,7 @@
     padding-right: 24px;
     width: 100%;
     max-width: 1028px;
-    background: #f2f2f2;
+    background: #a1c0d3;
 }
 
 .chatAnalysisPanel {
