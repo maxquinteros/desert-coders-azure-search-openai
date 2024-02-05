@@ -270,9 +270,8 @@ const Chat = () => {
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(58, 195, 99, 1)"} aria-hidden="true" aria-label="Chat logo" />
-                            <img src="/app/frontend/src/assets/OIG3.jpeg" />
-                            <h1 className={styles.chatEmptyStateTitle}>Hola amigos</h1>
-                            <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
+                            <h1 className={styles.chatEmptyStateTitle}>Talk about the patient's possible illnesses</h1>
+                            <h2 className={styles.chatEmptyStateSubtitle}>Describe the patient's symptoms</h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
                         </div>
                     ) : (
