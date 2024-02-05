@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Outlet, NavLink, Link } from "react-router-dom";
 
 import github from "../../assets/github.svg";
@@ -8,11 +10,17 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
+import { ContexMenu } from "../../components/ContexMenu";
+
+const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
+
 const Layout = () => {
     return (
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
+                    <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
+
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>Chat about native plants</h3>
                     </Link>

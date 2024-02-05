@@ -1,7 +1,7 @@
 import { Settings24Regular } from "@fluentui/react-icons";
 import { Button } from "@fluentui/react-components";
 
-import styles from "./SettingsButton.module.css";
+import styles from "./ContexMenu.module.css";
 
 interface Props {
     className?: string;
@@ -12,7 +12,7 @@ export const SettingsButton = ({ className, onClick }: Props) => {
     return (
         <div className={`${styles.container} ${className ?? ""}`}>
             <Button icon={<Settings24Regular />} onClick={onClick}>
-                {"Developer settings"}
+                {"Menu"}
             </Button>
         </div>
     );
