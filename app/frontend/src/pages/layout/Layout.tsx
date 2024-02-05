@@ -20,7 +20,7 @@ const Layout = () => {
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
-                    <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(isConfigPanelOpen)} />
+                    <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>Chat about native plants</h3>
                     </Link>
@@ -57,7 +57,10 @@ const Layout = () => {
 
             <Outlet />
 
-            <Panel headerText="Configure answer generation"></Panel>
+            <Panel isOpen={isConfigPanelOpen} onDismiss={togglePanel} headerText="Mi Panel" closeButtonAriaLabel="Cerrar">
+                {/* Contenido del panel */}
+                <p>¡Contenido del panel aquí!</p>
+            </Panel>
         </div>
     );
 };
