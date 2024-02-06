@@ -31,7 +31,7 @@ from quart import (
     send_file,
     send_from_directory,
 )
-from quart_cors import cors
+from quart_cors import cors 
 
 from approaches.approach import Approach
 from approaches.chatreadretrieveread import ChatReadRetrieveReadApproach
@@ -54,6 +54,7 @@ from config import (
 from core.authentication import AuthenticationHelper
 from decorators import authenticated, authenticated_path
 from error import error_dict, error_response
+UPLOAD_FOLDER = '/data'  # Especifica la ruta donde deseas guardar los archivos
 
 bp = Blueprint("routes", __name__, static_folder="static")
 # Fix Windows registry issue with mimetypes
@@ -64,6 +65,8 @@ mimetypes.add_type("text/css", ".css")
 @bp.route("/")
 async def index():
     return await bp.send_static_file("index.html")
+
+
 
 
 # Empty page is recommended for login redirect to work.
@@ -138,6 +141,10 @@ async def ask(auth_claims: Dict[str, Any]):
         return error_response(error, "/ask")
 
 
+
+
+
+
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
         if dataclasses.is_dataclass(o):
@@ -185,6 +192,30 @@ async def chat(auth_claims: Dict[str, Any]):
             return response
     except Exception as error:
         return error_response(error, "/chat")
+
+
+
+
+@bp.route("/up", methods=["POST"])
+@authenticated
+# Permite solicitudes desde cualquier origen (puedes personalizar esto según tus necesidades)
+async def up(auth_claims: Dict[str, Any]):
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No file part"}), 400
+
+        file = request.files['file']
+
+        if file.filename == '':
+            return jsonify({"error": "No selected file"}), 400
+
+        if file:
+            # Aquí se especifica la ruta completa donde se guardará el archivo
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+            return jsonify({"message": "File uploaded successfully"}), 200
+
+    except Exception as error:
+        return error_response(error, "/up")
 
 
 # Send MSAL.js settings to the client UI
@@ -400,7 +431,7 @@ async def close_clients():
 def create_app():
     app = Quart(__name__)
     app.register_blueprint(bp)
-
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     if os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"):
         configure_azure_monitor()
         # This tracks HTTP requests made by aiohttp:
