@@ -141,10 +141,6 @@ async def ask(auth_claims: Dict[str, Any]):
         return error_response(error, "/ask")
 
 
-
-
-
-
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
         if dataclasses.is_dataclass(o):
@@ -196,26 +192,30 @@ async def chat(auth_claims: Dict[str, Any]):
 
 
 
+
 @bp.route("/up", methods=["POST"])
 @authenticated
-# Permite solicitudes desde cualquier origen (puedes personalizar esto según tus necesidades)
 async def up(auth_claims: Dict[str, Any]):
     try:
-        if 'file' not in request.files:
-            return jsonify({"error": "No file part"}), 400
+        form = await request.form
+        file = form['file']  # Cambiado aquí
 
-        file = request.files['file']
+        if file is None:
+            return jsonify({"error": "No file part"}), 400
 
         if file.filename == '':
             return jsonify({"error": "No selected file"}), 400
 
         if file:
             # Aquí se especifica la ruta completa donde se guardará el archivo
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+            file.save(os.path.join("/data", file.filename))
+            
             return jsonify({"message": "File uploaded successfully"}), 200
-
     except Exception as error:
-        return error_response(error, "/up")
+        return error_response(error, "/")
+
+
+
 
 
 # Send MSAL.js settings to the client UI
