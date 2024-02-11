@@ -1,4 +1,4 @@
-import { Settings24Regular } from "@fluentui/react-icons";
+import { BookPulse24Filled } from "@fluentui/react-icons";
 import { Button } from "@fluentui/react-components";
 
 import styles from "./ContexMenu.module.css";
@@ -11,8 +11,8 @@ interface Props {
 export const ContexMenu = ({ className, onClick }: Props) => {
     return (
         <div className={`${styles.container} ${className ?? ""}`}>
-            <Button icon={<Settings24Regular />} onClick={onClick}>
-                {"Menu"}
+            <Button icon={<BookPulse24Filled />} onClick={onClick}>
+                {"Library"}
             </Button>
         </div>
     );

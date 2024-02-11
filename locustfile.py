@@ -18,9 +18,9 @@ class ChatUser(HttpUser):
                     {
                         "content": random.choice(
                             [
-                                "What is included in my Northwind Health Plus plan that is not in standard?",
-                                "What does a Product Manager do?",
-                                "What happens in a performance review?",
+                                "My patient has a cough and fever.",
+                                "My patient has nausea and stomach pain.",
+                                "My patient has arrhythmia and high blood pressure.",
                                 "Whats your whistleblower policy?",
                             ]
                         ),

@@ -6,7 +6,6 @@ import styles from "./Ask.module.css";
 import { askApi, configApi, ChatAppResponse, ChatAppRequest, RetrievalMode, VectorFieldOptions, GPT4VInput } from "../../api";
 import { Answer, AnswerError } from "../../components/Answer";
 import { QuestionInput } from "../../components/QuestionInput";
-import { ExampleList } from "../../components/Example";
 import { AnalysisPanel, AnalysisPanelTabs } from "../../components/AnalysisPanel";
 import { SettingsButton } from "../../components/SettingsButton/SettingsButton";
 import { useLogin, getToken, isLoggedIn, requireAccessControl } from "../../authConfig";
@@ -179,7 +178,7 @@ export function Component(): JSX.Element {
             <div className={styles.askTopSection}>
                 <SettingsButton className={styles.settingsButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
 
-                <h1 className={styles.askTitle}>Ask your data</h1>
+                <h1 className={styles.askTitle}>Write a disease to know its symptoms and treatment</h1>
                 <div className={styles.askQuestionInput}>
                     <QuestionInput
                         placeholder="Example: Does my plan cover annual eye exams?"
@@ -188,36 +187,6 @@ export function Component(): JSX.Element {
                         onSend={question => makeApiRequest(question)}
                     />
                 </div>
-            </div>
-            <div className={styles.askBottomSection}>
-                {isLoading && <Spinner label="Generating answer" />}
-                {!lastQuestionRef.current && <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />}
-                {!isLoading && answer && !error && (
-                    <div className={styles.askAnswerContainer}>
-                        <Answer
-                            answer={answer}
-                            isStreaming={false}
-                            onCitationClicked={x => onShowCitation(x)}
-                            onThoughtProcessClicked={() => onToggleTab(AnalysisPanelTabs.ThoughtProcessTab)}
-                            onSupportingContentClicked={() => onToggleTab(AnalysisPanelTabs.SupportingContentTab)}
-                        />
-                    </div>
-                )}
-                {error ? (
-                    <div className={styles.askAnswerContainer}>
-                        <AnswerError error={error.toString()} onRetry={() => makeApiRequest(lastQuestionRef.current)} />
-                    </div>
-                ) : null}
-                {activeAnalysisPanelTab && answer && (
-                    <AnalysisPanel
-                        className={styles.askAnalysisPanel}
-                        activeCitation={activeCitation}
-                        onActiveTabChanged={x => onToggleTab(x)}
-                        citationHeight="600px"
-                        answer={answer}
-                        activeTab={activeAnalysisPanelTab}
-                    />
-                )}
             </div>
 
             <Panel

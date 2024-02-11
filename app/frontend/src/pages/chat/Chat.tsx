@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Checkbox, Panel, DefaultButton, TextField, SpinButton } from "@fluentui/react";
 import { CameraSparkles20Regular, SparkleFilled } from "@fluentui/react-icons";
 import readNDJSONStream from "ndjson-readablestream";
-import robotImage from "../../pages/chat/robot.png";
+import robotImage from "../../pages/chat/robot2.png";
 
 import styles from "./Chat.module.css";
 
@@ -270,7 +270,7 @@ const Chat = () => {
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
-                            <img src={robotImage} alt="React" width="98" height="auto" />
+                            <img src={robotImage} alt="React" width="300" height="auto" />
                             <h1 className={styles.chatEmptyStateTitle}>Talk about the patient's illnesses</h1>
                             <h2 className={styles.chatEmptyStateSubtitle}>Describe the patient's symptoms</h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
