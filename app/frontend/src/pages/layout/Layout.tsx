@@ -14,6 +14,8 @@ import { useLogin } from "../../authConfig";
 
 import { LoginButton } from "../../components/LoginButton";
 
+import team_logo from "../../assets/logo_team2.png";
+
 const Layout = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
 
@@ -24,6 +26,11 @@ const Layout = () => {
         <div className={styles.layout}>
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
+                    <div className={styles.container}>
+                        <img src={team_logo} alt="team_logo" width="auto" height="40" className={styles.team_logo} />
+
+                        <h3 className="myHeader"> DESERT CODERS </h3>
+                    </div>
                     <ContexMenu className={styles.contexMenu} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>Chat about symptoms of diseases</h3>
@@ -60,7 +67,7 @@ const Layout = () => {
                             </li>
                         </ul>
                     </nav>
-                    <h4 className={styles.headerRightText}>Azure OpenAI + AI Search</h4>
+
                     {useLogin && <LoginButton />}
                 </div>
             </header>

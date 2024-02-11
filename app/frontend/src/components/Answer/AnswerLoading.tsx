@@ -2,7 +2,8 @@ import { Stack } from "@fluentui/react";
 import { animated, useSpring } from "@react-spring/web";
 
 import styles from "./Answer.module.css";
-import { AnswerIcon } from "./AnswerIcon";
+
+import icon_loading from "./robot.png";
 
 export const AnswerLoading = () => {
     const animatedStyles = useSpring({
@@ -13,7 +14,8 @@ export const AnswerLoading = () => {
     return (
         <animated.div style={{ ...animatedStyles }}>
             <Stack className={styles.answerContainer} verticalAlign="space-between">
-                <AnswerIcon />
+                <img src={icon_loading} alt="robot" width="70" height="auto" />
+
                 <Stack.Item grow>
                     <p className={styles.answerText}>
                         Generating answer
