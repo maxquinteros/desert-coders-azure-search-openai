@@ -6,7 +6,7 @@ import styles from "./Answer.module.css";
 
 import { ChatAppResponse, getCitationFilePath } from "../../api";
 import { parseAnswerToHtml } from "./AnswerParser";
-import { AnswerIcon } from "./AnswerIcon";
+import icon_loading from "./robot.png";
 
 interface Props {
     answer: ChatAppResponse;
@@ -39,7 +39,7 @@ export const Answer = ({
         <Stack className={`${styles.answerContainer} ${isSelected && styles.selected}`} verticalAlign="space-between">
             <Stack.Item>
                 <Stack horizontal horizontalAlign="space-between">
-                    <AnswerIcon />
+                    <img src={icon_loading} alt="robot" width="50" height="auto" />
                     <div>
                         <IconButton
                             style={{ color: "black" }}
