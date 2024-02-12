@@ -263,6 +263,7 @@ const Chat = () => {
     return (
         <div className={styles.container}>
             <div className={styles.commandsContainer}>
+                <h1 className={styles.chatHistory}> Chat History</h1>
                 <ClearChatButton className={styles.commandButton} onClick={clearChat} disabled={!lastQuestionRef.current || isLoading} />
                 <SettingsButton className={styles.commandButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
             </div>

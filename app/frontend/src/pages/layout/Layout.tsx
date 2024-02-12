@@ -74,17 +74,31 @@ const Layout = () => {
 
             <Outlet />
 
-            <Panel isOpen={isConfigPanelOpen} onDismiss={closePanel} headerText="Configuración" closeButtonAriaLabel="Cerrar" type={PanelType.smallFixedNear}>
+            <div className={`${styles.light} ${styles.x1}`}></div>
+            <div className={`${styles.light} ${styles.x2}`}></div>
+            <div className={`${styles.light} ${styles.x3}`}></div>
+            <div className={`${styles.light} ${styles.x4}`}></div>
+            <div className={`${styles.light} ${styles.x5}`}></div>
+            <div className={`${styles.light} ${styles.x6}`}></div>
+            <div className={`${styles.light} ${styles.x7}`}></div>
+            <div className={`${styles.light} ${styles.x8}`}></div>
+            <div className={`${styles.light} ${styles.x9}`}></div>
+
+            <Panel isOpen={isConfigPanelOpen} onDismiss={closePanel} headerText="Library" closeButtonAriaLabel="Cerrar" type={PanelType.smallFixedNear}>
                 <div className={styles.panelContent}>
                     {/* Sección de Login */}
                     <div>
-                        <h4>Login</h4>
+                        <h4> Manual of Surgery Volumen First General Surgery Sixth Edition </h4>
                         {/* Puedes agregar aquí tus componentes o contenido relacionado con el login */}
                     </div>
 
                     {/* Sección de Historial */}
                     <div>
-                        <h4>Historial</h4>
+                        <h4> Principles of Public Health </h4>
+                        {/* Puedes agregar aquí tus componentes o contenido relacionado con el historial */}
+                    </div>
+                    <div>
+                        <h4> Surgical Anatomy </h4>
                         {/* Puedes agregar aquí tus componentes o contenido relacionado con el historial */}
                     </div>
                 </div>
